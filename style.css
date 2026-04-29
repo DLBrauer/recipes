@@ -993,3 +993,145 @@ header h1 {
     grid-template-columns: 65px 65px 1fr 28px;
   }
 }
+
+/* ── INGREDIENT SECTIONS ─────────────────────────────────── */
+.ing-section-header {
+  font-family: "Playfair Display", serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--terra);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 0.8rem 0 0.25rem;
+  border-bottom: 1.5px solid var(--terra);
+  margin-bottom: 0.25rem;
+  margin-top: 0.25rem;
+}
+.ing-section-header:first-child {
+  padding-top: 0.25rem;
+}
+
+/* ── SECTION ROW (add/edit form) ─────────────────────────── */
+.section-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.section-name-input {
+  flex: 1;
+  padding: 0.45rem 0.75rem;
+  border: 1.5px dashed var(--terra);
+  border-radius: 6px;
+  font-family: "Playfair Display", serif;
+  font-size: 0.9rem;
+  color: var(--terra);
+  background: #fff9f7;
+  outline: none;
+}
+.section-name-input::placeholder {
+  color: var(--terra-light);
+  font-style: italic;
+}
+.section-name-input:focus {
+  border-style: solid;
+}
+.ing-add-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+.add-section-btn {
+  background: none;
+  border: 1.5px dashed var(--terra-light);
+  color: var(--terra);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.add-section-btn:hover {
+  border-color: var(--terra);
+  background: #fff9f7;
+}
+
+/* ── STEP VARIABLE AMOUNTS ───────────────────────────────── */
+.step-var {
+  display: inline-block;
+  background: var(--cream);
+  color: var(--terra);
+  font-weight: 600;
+  padding: 0.05em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--warm-gray);
+  font-size: 0.95em;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+
+/* ── COOKING MODE: step ingredients ─────────────────────── */
+.cooking-step-ingredients {
+  display: none;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.cooking-ing-chip {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--terra-light);
+  padding: 0.3rem 0.85rem;
+  border-radius: 16px;
+  font-size: 0.88rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-weight: 600;
+}
+
+/* ── EDIT BUTTON ─────────────────────────────────────────── */
+.edit-btn {
+  background: none;
+  border: 1px solid #e0d0c0;
+  color: var(--text-muted);
+  padding: 0.65rem 1rem;
+  border-radius: 24px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: "Source Sans 3", sans-serif;
+  transition: all 0.2s;
+}
+.edit-btn:hover {
+  border-color: var(--terra);
+  color: var(--terra);
+}
+
+/* ── FILTER: SECTION TAGS ────────────────────────────────── */
+.filter-tag.section-tag {
+  border-style: dashed;
+}
+.filter-tag.section-tag.active {
+  border-style: solid;
+}
+
+/* ── FORM HINT ───────────────────────────────────────────── */
+.form-hint {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  background: var(--cream);
+  border: 1px solid var(--warm-gray);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.55;
+}
+.form-hint code {
+  background: #fff;
+  border: 1px solid var(--warm-gray);
+  border-radius: 3px;
+  padding: 0.05em 0.35em;
+  font-size: 0.9em;
+  color: var(--terra);
+  font-family: monospace;
+}

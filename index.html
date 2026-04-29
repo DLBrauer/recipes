@@ -47,12 +47,12 @@
       <div class="recipe-detail" id="recipe-detail-content"></div>
     </div>
 
-    <!-- ADD RECIPE -->
+    <!-- ADD / EDIT RECIPE -->
     <div id="view-add" class="view">
       <div class="form-container">
         <button class="back-btn" onclick="navigate('#')">← Zurück zur Übersicht</button>
-        <h2>Neues Rezept</h2>
-        <p class="form-subtitle">Halte dein Lieblingsrezept für immer fest 🍽️</p>
+        <h2 id="form-title">Neues Rezept</h2>
+        <p class="form-subtitle" id="form-subtitle">Halte dein Lieblingsrezept für immer fest 🍽️</p>
 
         <div class="form-section">
           <h3>Grundinformationen</h3>
@@ -95,11 +95,18 @@
 
         <div class="form-section">
           <h3>Zutaten</h3>
+          <p class="form-hint">
+            Tipp: In der Zubereitung kannst du Mengen mit <code>{150g Butter}</code> oder <code>{3 Stk Eier}</code>
+            einbetten — sie skalieren automatisch mit den Portionen.
+          </p>
           <div class="col-headers">
             <span>Menge</span><span>Einheit</span><span>Zutat</span><span></span>
           </div>
           <div id="ingredients-list"></div>
-          <button class="add-btn" onclick="addIngredient()">+ Zutat hinzufügen</button>
+          <div class="ing-add-row">
+            <button class="add-btn" style="flex:1" onclick="addIngredient()">+ Zutat hinzufügen</button>
+            <button class="add-section-btn" onclick="addSection()">⊞ Abschnitt</button>
+          </div>
         </div>
 
         <div class="form-section">
@@ -128,6 +135,7 @@
       </div>
       <div class="cooking-body">
         <div class="cooking-step-count" id="cooking-step-count"></div>
+        <div class="cooking-step-ingredients" id="cooking-step-ingredients"></div>
         <div class="cooking-step-num"   id="cooking-step-num"></div>
         <div class="cooking-step-text"  id="cooking-step-text"></div>
       </div>
@@ -146,7 +154,7 @@
         </div>
         <div class="modal-body">
           <p>
-            Neue Rezepte werden als JSON-Dateien direkt in deinem GitHub-Repository gespeichert
+            Neue Rezepte und Bilder werden direkt in deinem GitHub-Repository gespeichert
             und über GitHub Pages gehostet.
           </p>
           <div class="form-group">
