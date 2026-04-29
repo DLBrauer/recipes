@@ -1,0 +1,25 @@
+{
+  "id": "s3",
+  "title": "Schokoladen-Mousse au Chocolat",
+  "description": "Cremiges, luftiges Schokoladenmousse ohne Backen — in 20 Minuten zubereitet, dann nur noch kühlen.",
+  "image": "",
+  "prepTime": 20,
+  "cookTime": 0,
+  "servings": 4,
+  "tags": ["Dessert", "Schokolade", "Schnell", "Vegetarisch"],
+  "ingredients": [
+    { "amount": "200", "unit": "g",     "name": "Zartbitterschokolade (70 %)" },
+    { "amount": "4",   "unit": "Stk",   "name": "Eier (getrennt)" },
+    { "amount": "2",   "unit": "EL",    "name": "Zucker" },
+    { "amount": "200", "unit": "ml",    "name": "Schlagsahne" },
+    { "amount": "1",   "unit": "Prise", "name": "Salz" }
+  ],
+  "instructions": [
+    "Schokolade grob hacken und über einem Wasserbad unter Rühren schmelzen. Leicht abkühlen lassen.",
+    "Eigelbe mit Zucker schaumig-hell aufschlagen (ca. 3 Minuten). Unter die Schokolade rühren.",
+    "Schlagsahne steif schlagen und beiseitestellen.",
+    "Eiweiß mit einer Prise Salz zu festem Schnee schlagen.",
+    "Erst die Sahne, dann den Eischnee in zwei Portionen vorsichtig unter die Schokoladenmasse heben.",
+    "In Gläser oder Schüsseln füllen. Mindestens 2-3 Stunden im Kühlschrank fest werden lassen."
+  ]
+}

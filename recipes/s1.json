@@ -1,0 +1,32 @@
+{
+  "id": "s1",
+  "title": "Maulwurfkuchen mit Banane",
+  "description": "Der klassische Maulwurfkuchen — saftiger Schokoboden, cremige Bananenschichten und fluffige Sahne. Ein Genuss für die ganze Familie!",
+  "image": "",
+  "prepTime": 30,
+  "cookTime": 25,
+  "servings": 12,
+  "tags": ["Backen", "Schokolade", "Früchte", "Dessert"],
+  "ingredients": [
+    { "amount": "4",   "unit": "Stk", "name": "Eier" },
+    { "amount": "200", "unit": "g",   "name": "Zucker" },
+    { "amount": "150", "unit": "g",   "name": "Butter" },
+    { "amount": "200", "unit": "g",   "name": "Mehl" },
+    { "amount": "3",   "unit": "EL",  "name": "Kakao" },
+    { "amount": "1",   "unit": "Pck", "name": "Backpulver" },
+    { "amount": "3",   "unit": "Stk", "name": "Bananen" },
+    { "amount": "600", "unit": "ml",  "name": "Sahne" },
+    { "amount": "3",   "unit": "Pck", "name": "Sahnesteif" },
+    { "amount": "100", "unit": "g",   "name": "Schokoraspeln" }
+  ],
+  "instructions": [
+    "Backofen auf 180 °C Ober-/Unterhitze vorheizen. Eine Springform (26 cm) einfetten und bemehlen.",
+    "Butter und Zucker cremig rühren. Eier einzeln unterrühren, bis eine helle Masse entsteht.",
+    "Mehl, Kakao und Backpulver sieben und unter die Masse rühren. Teig in die Springform füllen.",
+    "25 Minuten backen. Stäbchenprobe machen. Den Boden vollständig abkühlen lassen.",
+    "Bananen schälen und in Scheiben schneiden. Gleichmäßig auf dem Boden verteilen.",
+    "Sahne mit Sahnesteif steif schlagen und auf die Bananen streichen und glattziehen.",
+    "Mit Schokoraspeln bestreuen. Mindestens 2 Stunden (besser über Nacht) kalt stellen.",
+    "Vor dem Servieren mit einem Löffel kleine „Maulwurfhügel\" aus Schokoraspeln auf der Sahne formen."
+  ]
+}

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meine Rezepte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 onclick="navigate('#')">✦ Meine Rezepte</h1>
+      <div style="display:flex;gap:.6rem;align-items:center">
+        <button class="nav-btn icon-btn" onclick="openSettings()" title="GitHub einrichten">⚙</button>
+        <button class="nav-btn" onclick="navigate('#add')">+ Rezept hinzufügen</button>
+      </div>
+    </header>
+
+    <!-- OVERVIEW -->
+    <div id="view-overview" class="view">
+      <div class="overview-hero">
+        <h2>Meine Rezeptsammlung</h2>
+        <p>Alle Lieblingsrezepte an einem Ort</p>
+        <div class="search-bar">
+          <span class="search-icon">⌕</span>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Rezepte suchen..."
+            oninput="filterRecipes()"
+          />
+        </div>
+      </div>
+      <div class="filters">
+        <span class="filter-label">Filter:</span>
+        <div id="filter-tags" style="display:flex;gap:.4rem;flex-wrap:wrap"></div>
+      </div>
+      <div class="recipe-grid" id="recipe-grid"></div>
+    </div>
+
+    <!-- RECIPE DETAIL -->
+    <div id="view-detail" class="view">
+      <div class="recipe-detail" id="recipe-detail-content"></div>
+    </div>
+
+    <!-- ADD RECIPE -->
+    <div id="view-add" class="view">
+      <div class="form-container">
+        <button class="back-btn" onclick="navigate('#')">← Zurück zur Übersicht</button>
+        <h2>Neues Rezept</h2>
+        <p class="form-subtitle">Halte dein Lieblingsrezept für immer fest 🍽️</p>
+
+        <div class="form-section">
+          <h3>Grundinformationen</h3>
+          <div class="form-group">
+            <label>Rezeptname *</label>
+            <input type="text" id="f-title" placeholder="z.B. Omas Apfelkuchen" />
+          </div>
+          <div class="form-group">
+            <label>Beschreibung</label>
+            <textarea id="f-desc" placeholder="Kurze Beschreibung — was macht dieses Rezept besonders?"></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Vorbereitung (Min)</label>
+              <input type="number" id="f-prep" placeholder="20" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Koch-/Backzeit (Min)</label>
+              <input type="number" id="f-cook" placeholder="45" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Portionen</label>
+              <input type="number" id="f-servings" placeholder="4" min="1" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Foto</h3>
+          <div class="image-upload-area" onclick="document.getElementById('f-image').click()">
+            <div id="upload-placeholder">
+              <div style="font-size:2.5rem;margin-bottom:.5rem">📷</div>
+              <p style="color:var(--text-muted);font-size:.9rem">Bild hochladen — hier klicken</p>
+              <p style="color:#bbb;font-size:.78rem;margin-top:.3rem">JPG, PNG, WEBP bis ~8 MB</p>
+            </div>
+            <img id="image-preview" alt="Vorschau" />
+            <input type="file" id="f-image" accept="image/*" onchange="previewImage(event)" />
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Zutaten</h3>
+          <div class="col-headers">
+            <span>Menge</span><span>Einheit</span><span>Zutat</span><span></span>
+          </div>
+          <div id="ingredients-list"></div>
+          <button class="add-btn" onclick="addIngredient()">+ Zutat hinzufügen</button>
+        </div>
+
+        <div class="form-section">
+          <h3>Zubereitung</h3>
+          <div id="instructions-list"></div>
+          <button class="add-btn" onclick="addInstruction()">+ Schritt hinzufügen</button>
+        </div>
+
+        <div class="form-section">
+          <h3>Kategorien</h3>
+          <div class="tags-grid" id="tag-selector"></div>
+        </div>
+
+        <button class="submit-btn" id="save-btn" onclick="saveRecipe()">Rezept speichern</button>
+      </div>
+    </div>
+
+    <!-- COOKING MODE -->
+    <div class="cooking-overlay" id="cooking-overlay">
+      <div class="cooking-header">
+        <span class="cooking-title" id="cooking-recipe-title"></span>
+        <button class="cooking-close" onclick="closeCookingMode()">✕</button>
+      </div>
+      <div class="cooking-progress">
+        <div class="cooking-progress-bar" id="cooking-progress-bar" style="width:0%"></div>
+      </div>
+      <div class="cooking-body">
+        <div class="cooking-step-count" id="cooking-step-count"></div>
+        <div class="cooking-step-num"   id="cooking-step-num"></div>
+        <div class="cooking-step-text"  id="cooking-step-text"></div>
+      </div>
+      <div class="cooking-nav">
+        <button class="cook-nav-btn prev" id="btn-prev" onclick="cookStep(-1)">← Zurück</button>
+        <button class="cook-nav-btn next" id="btn-next" onclick="cookStep(1)">Weiter →</button>
+      </div>
+    </div>
+
+    <!-- SETTINGS MODAL -->
+    <div class="modal-overlay" id="settings-modal" onclick="overlayClick(event)">
+      <div class="modal">
+        <div class="modal-header">
+          <h3>GitHub-Einstellungen</h3>
+          <button onclick="closeSettings()">✕</button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Neue Rezepte werden als JSON-Dateien direkt in deinem GitHub-Repository gespeichert
+            und über GitHub Pages gehostet.
+          </p>
+          <div class="form-group">
+            <label>GitHub Benutzername</label>
+            <input type="text" id="cfg-owner" placeholder="dein-username" />
+          </div>
+          <div class="form-group">
+            <label>Repository Name</label>
+            <input type="text" id="cfg-repo" placeholder="meine-rezepte" />
+          </div>
+          <div class="form-group">
+            <label>Personal Access Token (PAT)</label>
+            <input type="password" id="cfg-token" placeholder="ghp_..." />
+            <small>
+              GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens.<br />
+              Berechtigung: <strong>Contents: Read and write</strong> für dein Repository.
+            </small>
+          </div>
+          <div class="modal-actions">
+            <button class="submit-btn" onclick="saveSettings()">Speichern</button>
+            <button class="nav-btn" onclick="testConnection()">Verbindung testen</button>
+          </div>
+          <div id="cfg-status" style="display:none"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

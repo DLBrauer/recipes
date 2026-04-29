@@ -1,0 +1,28 @@
+{
+  "id": "s2",
+  "title": "Schnelles Bananenbrot",
+  "description": "Saftiges Bananenbrot aus überreifen Bananen — in unter einer Stunde fertig und perfekt zum Frühstück!",
+  "image": "",
+  "prepTime": 10,
+  "cookTime": 55,
+  "servings": 8,
+  "tags": ["Backen", "Früchte", "Schnell", "Frühstück"],
+  "ingredients": [
+    { "amount": "3",   "unit": "Stk",   "name": "überreife Bananen" },
+    { "amount": "2",   "unit": "Stk",   "name": "Eier" },
+    { "amount": "80",  "unit": "g",     "name": "Butter, geschmolzen" },
+    { "amount": "120", "unit": "g",     "name": "Zucker" },
+    { "amount": "200", "unit": "g",     "name": "Mehl" },
+    { "amount": "1",   "unit": "TL",    "name": "Backpulver" },
+    { "amount": "1",   "unit": "Prise", "name": "Salz" },
+    { "amount": "1",   "unit": "TL",    "name": "Vanilleextrakt" }
+  ],
+  "instructions": [
+    "Backofen auf 175 °C vorheizen. Eine Kastenform (25 cm) einfetten und bemehlen.",
+    "Bananen in einer großen Schüssel mit einer Gabel fein zerdrücken.",
+    "Geschmolzene Butter, Eier, Zucker und Vanilleextrakt einrühren.",
+    "Mehl, Backpulver und Salz dazugeben und nur kurz verrühren — der Teig darf klumpig bleiben!",
+    "Teig in die Kastenform füllen und 50-55 Minuten backen. Stäbchenprobe!",
+    "10 Minuten in der Form abkühlen lassen, dann auf ein Gitter stürzen."
+  ]
+}
